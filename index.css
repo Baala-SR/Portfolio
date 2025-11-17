@@ -2,7 +2,7 @@
     --bg: #b6c4ff;
     --bg-alt: #0e1017;
     --card-bg: #12141f;
-    --accent: #f5a623;
+    --accent: #bdf523;
     --accent-soft: rgba(245, 166, 35, 0.1);
     --text: #f5f5f7;
     --muted: #a0a3b1;
@@ -24,14 +24,16 @@ body {
     min-height: 100vh;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-    
+
+
     /* Base dark gradient (your original vibe) */
     background:
-      radial-gradient(circle at top, #151929 0, #05060a 52%, #020308 100%);
+        radial-gradient(circle at top, #151929 0, #05060a 52%, #020308 100%);
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
 }
+
 /* CNC / technical overlay */
 body::before {
     content: "";
@@ -43,21 +45,17 @@ body::before {
     /* Grid + toolpath style overlay */
     background-image:
         /* Horizontal machining lines */
-        repeating-linear-gradient(
-            0deg,
+        repeating-linear-gradient(0deg,
             rgba(148, 163, 184, 0.08) 0px,
             rgba(148, 163, 184, 0.08) 1px,
             transparent 1px,
-            transparent 18px
-        ),
+            transparent 18px),
         /* Vertical machining lines */
-        repeating-linear-gradient(
-            90deg,
+        repeating-linear-gradient(90deg,
             rgba(100, 116, 139, 0.06) 0px,
             rgba(100, 116, 139, 0.06) 1px,
             transparent 1px,
-            transparent 18px
-        ),
+            transparent 18px),
         /* Soft “machine light” glows */
         radial-gradient(circle at 18% 22%, rgba(96, 165, 250, 0.25), transparent 60%),
         radial-gradient(circle at 82% 70%, rgba(56, 189, 248, 0.2), transparent 55%),
@@ -85,7 +83,16 @@ header {
     align-items: center;
     padding: 12px 0 28px;
     gap: 12px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    /* premium soft blur */
+    backdrop-filter: blur(8px);
 }
+
+
 
 .logo {
     font-weight: 700;
@@ -217,7 +224,7 @@ p {
 }
 
 .btn-primary {
-    background-image: linear-gradient(135deg, #fffa16, #22d3ee); 
+    background-image: linear-gradient(135deg, #fffa16, #22d3ee);
     color: #151515;
     font-weight: 600;
     box-shadow: 0 14px 28px rgba(90, 108, 67, 0.45);
@@ -256,7 +263,7 @@ p {
     border-left: 2px solid var(--accent);
     padding-left: 12px;
     margin-bottom: 14px;
-    color: #f7f7ff;
+    color: #fefff7;
 }
 
 .metric-row {
@@ -344,7 +351,7 @@ p {
     padding: 14px 16px;
     border-radius: var(--radius);
     background: var(--accent-soft);
-    border: 1px solid rgba(245, 166, 35, 0.4);
+    border: 1px solid var(--accent);
     font-size: 0.92rem;
     font-style: italic;
 }
@@ -370,8 +377,8 @@ p {
 .timeline-item::before {
     content: "";
     position: absolute;
-    left: -9px;
-    top: 4px;
+    left: -19px;
+    top: 8px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -496,33 +503,31 @@ footer a {
 }
 
 .contact-icons {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .contact-icon-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: 0.2s ease;
-  color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 0.2s ease;
+    color: #e5e7eb;
 }
 
 .contact-icon-item:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.15);
-  transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
 }
 
 .contact-png-icon {
-  width: 22px;
-  height: 22px;
-  opacity: 0.9;
+    width: 22px;
+    height: 22px;
+    opacity: 0.9;
 }
-
-
