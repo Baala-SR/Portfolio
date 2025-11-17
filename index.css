@@ -20,12 +20,53 @@
 }
 
 body {
+    position: relative;
+    min-height: 100vh;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #151929 0, #05060a 52%, #020308 100%);
+    
+    /* Base dark gradient (your original vibe) */
+    background:
+      radial-gradient(circle at top, #151929 0, #05060a 52%, #020308 100%);
     color: var(--text);
     line-height: 1.6;
+    overflow-x: hidden;
 }
+/* CNC / technical overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+
+    /* Grid + toolpath style overlay */
+    background-image:
+        /* Horizontal machining lines */
+        repeating-linear-gradient(
+            0deg,
+            rgba(148, 163, 184, 0.08) 0px,
+            rgba(148, 163, 184, 0.08) 1px,
+            transparent 1px,
+            transparent 18px
+        ),
+        /* Vertical machining lines */
+        repeating-linear-gradient(
+            90deg,
+            rgba(100, 116, 139, 0.06) 0px,
+            rgba(100, 116, 139, 0.06) 1px,
+            transparent 1px,
+            transparent 18px
+        ),
+        /* Soft “machine light” glows */
+        radial-gradient(circle at 18% 22%, rgba(96, 165, 250, 0.25), transparent 60%),
+        radial-gradient(circle at 82% 70%, rgba(56, 189, 248, 0.2), transparent 55%),
+        radial-gradient(circle at 70% 10%, rgba(250, 250, 16, 0.15), transparent 60%);
+
+    opacity: 0.65;
+    mix-blend-mode: soft-light;
+}
+
 
 a {
     color: inherit;
